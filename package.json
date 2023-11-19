@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This is react learning",
   "scripts": {
+    "start": "parcel Index.html",
+    "build": "parcel build Index.html",
     "test": "jest"
   },
   "repository": {
@@ -16,6 +18,8 @@
   },
   "homepage": "https://github.com/preeet1000/React-tutorial#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.10.3",
     "process": "^0.11.10"
   },

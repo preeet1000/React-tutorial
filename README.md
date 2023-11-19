@@ -67,6 +67,13 @@ JSX => React.createElement  => object => HTML(DOM) //  babel convert JSx element
 
 JSX - Improve the readability, User experience,  less code, Maintainibility.
 
+JSX is not mandatory as we can use React directly.
+
+JSX - It can have only one parent. Either use div as parent or use React.Fragment.
+ React.Fragment will put it child elements directly below the root div. Syntax - <></>
+
+Is ES6 Mandatory  - NO
+
 COMPONENT
 
 2 types  
@@ -74,3 +81,15 @@ Class based component - old way
 Functional based component - new way
 
 Functional Component is a Js function that returns JSX or React element or composition of react element. Name of component will always start with Capital letter for good practice. 
+
+Virtual DOM  - It is a representation of a DOM with us.
+Need Virtual DOM for reconciliation of react.
+
+Reconcilation  - It is an algorithm that react uses to diff one tree from other. 
+Diff algo find out what need to be updated and just update the small portion of the app.
+If all element has same attritbute than react will render the complete child tree.Eg all are div's.
+If we use "key" as attribute than react will know what is newly added and render tht only.
+
+React is fast bcz React is using Virtual DOM, it is representaion of the actual DOM.  
+If element has different tags than "Keys" not required but if tags are same than it is must to put 
+"Key" as attritbute so that reconciliation engine works best.

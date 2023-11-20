@@ -98,3 +98,8 @@ If element has different tags than "Keys" not required but if tags are same than
 To maintain a variable that changes itself is called React variable. React variable is kind of a state variable. Every component in react maintain a state so you can put some variable on to the state. Every time to create any local variable use state inside react.
 
 Create local state variable by useState hook. Hooks are just a normal function created by facebook developers. Eg:-  const [searchText] = useState(); 
+
+Monolithic Application - Everythinh is in one project. Eg. UI, API, Notifcation, logs etc
+Micro services - There is different project for Ui, API etc which make it better for testing, Separation of concern etc.
+
+UseEffect - useeffect is hook which has been called after the component rendering.

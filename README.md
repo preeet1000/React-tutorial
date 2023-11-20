@@ -93,3 +93,8 @@ If we use "key" as attribute than react will know what is newly added and render
 React is fast bcz React is using Virtual DOM, it is representaion of the actual DOM.  
 If element has different tags than "Keys" not required but if tags are same than it is must to put 
 "Key" as attritbute so that reconciliation engine works best.
+
+
+To maintain a variable that changes itself is called React variable. React variable is kind of a state variable. Every component in react maintain a state so you can put some variable on to the state. Every time to create any local variable use state inside react.
+
+Create local state variable by useState hook. Hooks are just a normal function created by facebook developers. Eg:-  const [searchText] = useState(); 

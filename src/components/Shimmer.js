@@ -1,6 +1,12 @@
-const ShimmerComponent =() => {
+const ShimmerComponent = () => {
     return (
-        <h3>Shimmer is loading!!</h3>
+        <div className="restaurant-list">
+            {
+                Array(10).fill("").map((e, index)=> (
+                    <div className="shimmer-card" key={index}></div>
+                ))
+            }
+        </div>
     )
 }
 

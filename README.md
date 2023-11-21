@@ -103,3 +103,21 @@ Monolithic Application - Everythinh is in one project. Eg. UI, API, Notifcation,
 Micro services - There is different project for Ui, API etc which make it better for testing, Separation of concern etc.
 
 UseEffect - useeffect is hook which has been called after the component rendering.
+UseEffect has no dependency in array -  It will be called only once after the component renders. Eg
+   useEffect(() => {
+    getSwiggyRestaurantsDetails(); // Api call
+  }, []);
+
+UseEffect has dependency in array - It will be called once after the comp. inital rendering + after
+whnenever the state of depenecy changes (seacrhText).
+ useEffect(() => {
+    getSwiggyRestaurantsDetails(); // Api call
+  }, [searchText]);
+
+UseEffect has no dependency array -  usefeect will execute after every state changes in component.
+ useEffect(() => {
+    getSwiggyRestaurantsDetails(); // Api call
+  });
+
+  ROUTER
+  npm i react-router-dom

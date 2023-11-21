@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { restaurants } from "./Constants";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerComponent from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, allRestaurant) {
   return allRestaurant?.filter((restaurant) =>
@@ -13,11 +14,10 @@ function filterData(searchText, allRestaurant) {
 }
 
 export const BodyComponent = () => {
-  const [allRestaurant, setAllRestaurantInfo] = useState();
-  const [filteredRestaurant, filteredSetTempRestaurant] =
-    useState([]);
-  const [searchText, setSearchText] = useState();
-
+  const [allRestaurant, setAllRestaurant] = useState([]);
+  const [filteredRestaurant, filteredSetTempRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  
   searchRestaurants = (searchValue, allRestaurant) => {
     setSearchText(searchValue);
     const filteredData = filterData(searchValue, allRestaurant);
@@ -38,7 +38,7 @@ export const BodyComponent = () => {
     // console.log(json?.data?.cards);
     const list = json?.data?.cards?.filter((data) => data?.card?.card?.info);
     // console.log(list[0].card?.card?.info);
-    setAllRestaurantInfo(list);
+    setAllRestaurant(list);
     filteredSetTempRestaurant(list);
   }
 
@@ -47,13 +47,6 @@ export const BodyComponent = () => {
   ) : (
     <>
       <div className="search-container">
-        {/* <input type="text" placeholder="Search" value={searchText} 
-    onChange={(e)=> setSearchText(e.target.value)}/> */}
-        {/* <button className="seach-button" onClick={()=> {
-      const filteredData  =  filterData(searchText, allRestaurant);
-      filteredSetTempRestaurant(filteredData);
-    }}>Search</button> */}
-
         <input
           type="text"
           placeholder="Search"
@@ -62,17 +55,18 @@ export const BodyComponent = () => {
         />
       </div>
       <div className="restaurant-list">
-        {/* <RestaurantCard restaurant={cardInfo[0]}></RestaurantCard>
-      <RestaurantCard restaurant={cardInfo[1]}></RestaurantCard>
-      <RestaurantCard restaurant={cardInfo[2]}></RestaurantCard>
-      <RestaurantCard restaurant={cardInfo[3]}></RestaurantCard>
-      <RestaurantCard restaurant={cardInfo[4]}></RestaurantCard>
-      <RestaurantCard restaurant={cardInfo[5]}></RestaurantCard> */}
-        {filteredRestaurant?.length === 0 ? (
+        {filteredRestaurant?.length === 0 && allRestaurant?.length ? (
           <h3> No Data Found!!</h3>
         ) : (
-          filteredRestaurant.map((restaurant, index) => {
-            return <RestaurantCard {...restaurant} key={index} />;
+          filteredRestaurant?.map((restaurant, index) => {
+            return (
+              <Link
+                to={"/restaurant/" + restaurant?.card?.card?.info?.id}
+                key={index}
+              >
+                <RestaurantCard {...restaurant} />
+              </Link>
+            );
           })
         )}
       </div>

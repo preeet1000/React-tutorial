@@ -121,3 +121,6 @@ UseEffect has no dependency array -  usefeect will execute after every state cha
 
   ROUTER
   npm i react-router-dom
+
+ Class based Component
+ Class component cannot be created without the Rendered method.

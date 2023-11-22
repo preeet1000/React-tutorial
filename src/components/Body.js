@@ -4,6 +4,7 @@ import { restaurants } from "./Constants";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerComponent from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utility/helper/useOnline";
 
 function filterData(searchText, allRestaurant) {
   return allRestaurant?.filter((restaurant) =>
@@ -17,7 +18,7 @@ export const BodyComponent = () => {
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurant, filteredSetTempRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
-  
+
   searchRestaurants = (searchValue, allRestaurant) => {
     setSearchText(searchValue);
     const filteredData = filterData(searchValue, allRestaurant);
@@ -35,11 +36,13 @@ export const BodyComponent = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9483469&lng=77.70246279999999&collection=83649&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     );
     const json = await data.json();
-    // console.log(json?.data?.cards);
     const list = json?.data?.cards?.filter((data) => data?.card?.card?.info);
-    // console.log(list[0].card?.card?.info);
     setAllRestaurant(list);
     filteredSetTempRestaurant(list);
+  }
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>User is offline !!</h1>;
   }
 
   return allRestaurant?.length === 0 ? (

@@ -124,3 +124,9 @@ UseEffect has no dependency array -  usefeect will execute after every state cha
 
  Class based Component
  Class component cannot be created without the Rendered method.
+
+ Hooks - It is jsut a normal function.
+ Custom hook - Hokks give us readability, usability, separation of concern(modularizing) and maintainbility. 
+
+ Lazy loading, On Demand loading, Code splitting, Chunking, Dynamic bundling, Dynamic import.
+ When loading a component on demand than React try to suspend loading. 

@@ -39,3 +39,5 @@
 
 export const restaurants = [
 ];
+
+export const FETCH_RESTAURANT_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9483469&lng=77.70246279999999&collection=83649&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null";

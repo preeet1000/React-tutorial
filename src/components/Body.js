@@ -49,7 +49,7 @@ export const BodyComponent = () => {
     <ShimmerComponent />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container bg-gray-200 pl-4 mb-4 h-10">
         <input
           type="text"
           placeholder="Search"
@@ -57,7 +57,7 @@ export const BodyComponent = () => {
           onChange={(e) => searchRestaurants(e.target.value, allRestaurant)}
         />
       </div>
-      <div className="restaurant-list">
+      <div className="restaurant-list flex flex-wrap justify-between">
         {filteredRestaurant?.length === 0 && allRestaurant?.length ? (
           <h3> No Data Found!!</h3>
         ) : (

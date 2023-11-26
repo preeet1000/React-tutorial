@@ -130,3 +130,47 @@ UseEffect has no dependency array -  usefeect will execute after every state cha
 
  Lazy loading, On Demand loading, Code splitting, Chunking, Dynamic bundling, Dynamic import.
  When loading a component on demand than React try to suspend loading. 
+
+
+ SCSS
+
+ Primary reason to use css framework is to write optimize css and save time as it is fast to develop app using it.
+
+ Inline way is not a good way to write style bcz Reusability, hard coded, difficult to maintain and
+ also if a heavy job for browsers to process it.
+
+ Different ways to write style:
+ 1. Css file
+ 2. Scss or Sass
+ 3. Inline way of styling - <button style={{backgroundColor: "red"}}> </button>
+ 4. libraries with prebuilt component(Material UI, Base UI, Ant, Chakra) - pros - easy to use, automatic themes, consistent UI.
+ 5. Styled Components
+ 6. Tailwind css framework
+
+Pros - Consistent accross the app, take care of responsiveness.
+Cons to use Framework or library(Material UI, Base UI, Ant, Chakra) - heavy bundle size, loose control - as personal customization is difficult.
+
+Tailwind CSS framework
+ - Css on the go(in the same file)
+ - Reusability
+ - less bundle size
+ - Flexibility (Allow Customization) 
+
+
+Pros
+- Easy to debug
+- Less Code
+- No duplicate Css
+- Easy to use
+- Bundle size is less
+- Easy to debug
+- Time is faster
+- Much more customization( more control)
+
+Cons
+- Come up with initial learning curve
+- make code little ugly as it compromising the readaibility
+
+
+
+Cons

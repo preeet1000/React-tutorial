@@ -56,6 +56,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/instamart",
         element: (
+          // suspense tell react to component needs to be lazy loading
           <Suspense fallback={<ShimmerComponent />}>
             <InstamartComponent />
           </Suspense>

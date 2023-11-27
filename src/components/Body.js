@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // mock data
 import { restaurants } from "./Constants";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerComponent from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utility/helper/useOnline";
+import UserContext from "../utility/helper/UserContext";
 
 function filterData(searchText, allRestaurant) {
   return allRestaurant?.filter((restaurant) =>
@@ -18,6 +19,7 @@ export const BodyComponent = () => {
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurant, filteredSetTempRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const { user, setUser } = useContext(UserContext);
 
   searchRestaurants = (searchValue, allRestaurant) => {
     setSearchText(searchValue);
@@ -55,6 +57,22 @@ export const BodyComponent = () => {
           placeholder="Search"
           value={searchText}
           onChange={(e) => searchRestaurants(e.target.value, allRestaurant)}
+        />
+
+        <input
+          type="text"
+          placeholder="Search"
+          className="ml-4"
+          value={user.userName}
+          onChange={(e) => setUser({ ...user, userName: e.target.value })}
+        />
+
+        <input
+          type="text"
+          placeholder="Search"
+          className="ml-4"
+          value={user.email}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
       </div>
       <div className="restaurant-list flex flex-wrap justify-between">

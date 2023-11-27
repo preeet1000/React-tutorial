@@ -1,31 +1,34 @@
 # React-tutorial
 My react
 
-Add package.json file and also initialize the repo with npm
-run -  npm init
+- Add package.json file and also initialize the repo with npm
+  run -  npm init
 
-Dependency means project require lot of packages. why? bcz we need lot of functionalities or super powers in our react app. Eg. minified, bundled, chunkin etc.
+- Dependency means project require lot of packages. why? bcz we need lot of functionalities
+  or super powers  in our react app. Eg. minified, bundled, chunkin etc.
 
 Those packages we'll be installed by npm.
 
 Install parcel
 
-npm install -D parcel or npm install --save-dev parcel.
+- npm install -D parcel or npm install --save-dev parcel.
 
-Caret or tilde is required if in future some upgraded version comes.
+- Caret or tilde is required if in future some upgraded version comes.
 
-Package-lock.json - package lock, locks the version it will show the exact version. It also maintain the version.
+- Package-lock.json - package lock, locks the version it will show the exact version. 
+  It also maintain the  version.
 
 
 Install react and react dom
 
-npm install react
-npm install react-dom
+- npm install react
+- npm install react-dom
 
 execute parcel using npm without downloading it and give the entry point as index.html
-npx parcel index.html
+- npx parcel index.html
 
-Note :-  About Parcel
+Note :- 
+- About Parcel
 Parcel is a bundler. It is bundling everything. 
 parcel create server
 Parcel is doing HMR(Hot module replacement. Parcel will keep track of all files that user is updating)
@@ -47,32 +50,31 @@ Tree Shaking-  remove the unwanted code Eg. App is using library which has 10 fu
 Pracel-cache - Pacel require some extra space to do perform it actions.
 
 Build the app for production and create dist folder
-npx parcel build Index.html
+- npx parcel build Index.html
 
 Anything which can be generated automatically on web server will be put inside the "gitignore" file
 
-
-Babel - It is a complier that convert the code to older version of browser to make browser compatiable using polyfills.
+- Babel - It is a complier that convert the code to older version of browser to make browser compatiable using polyfills.
 
 It is just a node package or just another piece of js code that input the code and convert to the
 output.
 
 Install babel-plugin-transform-remove-console  to remove the console  and config it in the App. 
 
-Render - Updating anything in the DOM is called Render
+- Render - Updating anything in the DOM is called Render
 
-JSX -  JSX is HTML like syntax inside the Javascript
+- JSX -  JSX is HTML like syntax inside the Javascript
 
-JSX => React.createElement  => object => HTML(DOM) //  babel convert JSx element to the React.createElement
+- JSX => React.createElement  => object => HTML(DOM) //  babel convert JSx element to the React.createElement
 
-JSX - Improve the readability, User experience,  less code, Maintainibility.
+- JSX - Improve the readability, User experience,  less code, Maintainibility.
 
-JSX is not mandatory as we can use React directly.
+- JSX is not mandatory as we can use React directly.
 
-JSX - It can have only one parent. Either use div as parent or use React.Fragment.
+- JSX - It can have only one parent. Either use div as parent or use React.Fragment.
  React.Fragment will put it child elements directly below the root div. Syntax - <></>
 
-Is ES6 Mandatory  - NO
+ Is ES6 Mandatory  - NO
 
 COMPONENT
 
@@ -169,8 +171,61 @@ Pros
 
 Cons
 - Come up with initial learning curve
-- make code little ugly as it compromising the readaibility
+- make code little ugly as it compromising the readaibility.
 
+State - State is a local variable
+Props - props is a local variable of the parent
 
+Props Drilling - Passing data from parent to children and from children to grand children. It is called
+PD
+ 
+Lifting the state -  Lift the state of the child component to parent component.
 
-Cons
+React Context - React give the access to the Central state tht is called React Context. It can be used accross whole application.
+
+Why we used React Context - to avoid Props Drilling.
+
+REDUX
+
+Redux is a big object to store data. Data from Redux is available accross the app.
+
+State variable is local to the component.
+
+Props - Props can be passed to the children component.
+
+Context - It is a separate store entity or central store in the webapp and can be access from anywhere.
+
+Store - It is a separate store entity and can be access from anywhere.
+
+Setup
+
+- Create Store
+  - ConfigureStore - RTK
+
+- Provide my store to app
+  - <Provider store={store}> - import from react-redux
+
+- Slice
+  -  RTK - createSlice({
+    name: 'cartSlice',
+    initialState: {
+      state.items = []
+    },
+    reducers: {
+      addItems = (state, action) => {
+          state.items.push(action.payload)
+      }
+    }
+  })
+
+  export const {addItems} = cartSlice.actions;
+  export defualt cardSlice.reducer;
+
+- Put the slice into the store
+  - {
+    reducer: {
+      cart: cartSlice
+    }
+  }
+
+ 

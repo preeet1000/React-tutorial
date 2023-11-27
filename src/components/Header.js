@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utility/helper/useOnline";
+import { useSelector } from "react-redux";
 
 export const TitleComponent = () => {
   return (
@@ -17,6 +18,7 @@ export const TitleComponent = () => {
 const HeaderComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const isOnline = useOnline();
+  const cart = useSelector(store=> store.cart.items);
   return (
     <div className="header flex justify-between bg-gray-200 shadow-md">
       <TitleComponent />
@@ -37,6 +39,7 @@ const HeaderComponent = () => {
           <li className="px-4 mr-2">
             <Link to="/instamart">Instamart</Link>
           </li>
+          <li className="px-4 mr-2">Carts - {cart?.length}</li>
         </ul>
         {isLoggedIn ? (
           <button onClick={() => setIsLoggedIn(false)}>Logout</button>

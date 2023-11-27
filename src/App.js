@@ -8,19 +8,32 @@ import ErrorComponent from "./components/Error";
 import ContactComponent from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import ProfileComponent from "./components/Profile";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import ShimmerComponent from "./components/Shimmer";
+import UserContext from "./utility/helper/UserContext";
+import { Provider } from "react-redux";
+import store from "./utility/helper/store";
 
 const InstamartComponent = lazy(() => import("./components/Instamart"));
 const AboutComponent = lazy(() => import("./components/About"));
 // upon lazy loading => upon render => suspend loading
-const AppLayout = () => (
-  <>
-    <HeaderComponent />
-    <Outlet />
-    <FooterComponent />
-  </>
-);
+const AppLayout = () => {
+  const [user, setUser] = useState({
+    userName: "llllllll",
+    email: "kk@gmail.com",
+  });
+  return (
+    <>
+    <Provider store={store} >
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <HeaderComponent />
+        <Outlet />
+        <FooterComponent />
+      </UserContext.Provider>
+      </Provider>
+    </>
+  );
+};
 const appRouter = createBrowserRouter([
   {
     path: "/",

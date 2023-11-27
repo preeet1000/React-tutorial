@@ -193,9 +193,9 @@ State variable is local to the component.
 
 Props - Props can be passed to the children component.
 
-Context - It is a separate store entity or central store in the webapp and can be access from anywhere.
+Context - It is a separate store entity or central store in the webapp and it is a react own feature and can be access from anywhere.
 
-Store - It is a separate store entity and can be access from anywhere.
+Store - It is a separate store entity using Redux and can be access from anywhere.
 
 Setup
 
